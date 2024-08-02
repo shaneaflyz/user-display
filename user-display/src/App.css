@@ -1,5 +1,8 @@
-/* .App {
-  height: 100vh;
-  background-color: #fffff3;
-  background-attachment: fixed;
-} */
+.App {
+  text-align: center;
+}
+
+.content {
+  margin-top: 60px;
+  padding: 20px;
+}

@@ -1,0 +1,32 @@
+.friend-card {
+  display: flex;
+  align-items: center;
+  border: 3px solid #acacac;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  text-align: left;
+  width: 400px;
+}
+
+.friend-card img {
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.friend-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.friend-details h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.friend-details p {
+  margin: 4px 0;
+  font-size: 14px;
+}

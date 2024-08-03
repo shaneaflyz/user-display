@@ -1,9 +1,9 @@
 import React from 'react'
 import './FriendCard.css'
 
-const FriendCard = ({ friend }) => {
+const FriendCard = ({ friend, onClick }) => {
   return (
-    <div className="friend-card">
+    <div className="friend-card" onClick={() => {onClick(friend)}}>
       <img src={friend.picture.medium} alt={`${friend.name.first} ${friend.name.last}`} />
       <div className="friend-details">
         <h2>{`${friend.name.first} ${friend.name.last}`}</h2>

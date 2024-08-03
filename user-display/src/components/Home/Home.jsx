@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { fetchFriends } from "../../services/friendService";
 import FriendCard from "../FriendCard/FriendCard";
 import ReactPaginate from "react-paginate";
+import FriendModal from "../FriendModal/FriendModal";
 
 const Home = () => {
   const [friends, setFriends] = useState([]);
@@ -10,6 +11,8 @@ const Home = () => {
   const [pageCount, setPageCount] = useState(0);
   const [customPage, setCustomPage] = useState('')
   const [error, setError] = useState("");
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const friendsPerPage = 10;
 
@@ -45,6 +48,16 @@ const Home = () => {
     setCurrentPage(event.selected)
   }
 
+  const handleCardClick = (friend) => {
+    setSelectedFriend(friend)
+    setShowModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
+    setSelectedFriend(null)
+  }
+
   const offset = currentPage * friendsPerPage
   const currentPageData = friends.slice(offset, offset + friendsPerPage)
 
@@ -54,9 +67,10 @@ const Home = () => {
     <div className="friends-list-container">
       <div className="friends-list">
         {currentPageData.map((friend, index) => (
-          <FriendCard key={index} friend={friend} />
+          <FriendCard key={index} friend={friend} onClick={handleCardClick} />
         ))}
       </div>
+      <FriendModal show={showModal} onClose={handleCloseModal} friend={selectedFriend} />
       <div className="pagination-container">
         <ReactPaginate
           previousLabel={"<"}

@@ -23,7 +23,10 @@
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-  
+}
+
+.navbar-logo{
+  display: flex;
 }
 
 .navbar-links {
@@ -47,4 +50,8 @@
 
 .navbar-links a:hover {
   color: #ddd;
+}
+
+.icon {
+  margin: 1px 10px;
 }
